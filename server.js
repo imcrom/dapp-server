@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 var cors = require('cors');
-const { readFile } = require('fs');
+const { readFile } = require('fs').promises;
 const app = express();
 
 var corsOptions = {
@@ -34,14 +34,13 @@ app.post("/api", cors(corsOptions), async (req, res) => {
 
   async function listDir() {
     try {
-      var users = readFile('./users.json', 'utf8')
-      console.log(JSON.stringify(users))
-      
+      const users = await readFile('./users.json', 'utf8');
+      console.log(JSON.stringify(users));
     } catch (err) {
       console.error('Error occurred while reading directory!', err);
     }
   }
-
+  
   await listDir();
 
     
