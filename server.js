@@ -70,7 +70,7 @@ app.post("/api", cors(corsOptions), async (req, res) => {
       if (userExists) {
         res.status(201).json({ message: 'User exists' });
       } else {
-        const user = { username, wall_address: wallAddress };
+        const user = { name: username, wall_address: wallAddress };
         await writeToJson(user);
         res.status(200).json({ message: 'User added to list' });
       }
