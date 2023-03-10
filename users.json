@@ -1,4 +1,7 @@
-{
-    "name": "Imcromz",
-    "wall_address": "0x1979e8602EE97b0Fd084A35A9aa973E6d6820614"
-}
+
+[
+    {
+        "name": "Imcromz",
+        "wall_address": "0x1979e8602EE97b0Fd084A35A9aa973E6d6820614"
+    }
+]
