@@ -24,9 +24,16 @@ app.use(function (req, res, next) {
 
 
 
-app.get("/api",cors(corsOptions), (req, res) => {
-    res.json({"message": "Hello from server!"});
+app.get("/get_users", cors(corsOptions), async (req, res) => {
+  try {
+    const data = await readFile("./users.json", "utf8");
+    res.json(JSON.parse(data));
+  } catch (err) {
+    console.error("Error occurred while reading users file!", err);
+    res.status(500).json({ error: "Unable to read users file" });
+  }
 });
+
 
 
 async function writeToJson(user) {
