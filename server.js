@@ -152,7 +152,7 @@ app2.post("/apiv2", cors(corsOptions2), async (req, res) => {
 
   async function listDir() {
     try {
-      const users = await readFile('./dan-ai.json', 'utf8');
+      const users = await readFile('./dan-users.json', 'utf8');
 
       const userExists = await checkUser2(username);
       if (userExists) {
